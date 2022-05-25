@@ -1,4 +1,4 @@
-import { useState } from "react-redux";
+import { useState } from "react";
 import "./contact.scss";
 
 export default function Contact() {
