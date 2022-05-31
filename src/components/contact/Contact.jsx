@@ -30,16 +30,16 @@ export default function Contact() {
 
       <div className="right"></div>
 
-      {/* <div className="right">
-      {/* place emailJS here */}
+      <div className="right">
+        {/* place emailJS here */}
         <h2>Contact.</h2>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder="Email" />
           <textarea placeholder="Message"></textarea>
           <button type="submit">Send</button>
-          {message && <span>Thanks, I'll reply ASAP :)</span>}
+          {message && <span>Thanks, I'll reply ASAP </span>}
         </form>
-      </div> */}
+      </div>
     </div>
   );
 }
