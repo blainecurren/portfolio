@@ -1,45 +1,31 @@
 // import { useState } from "react";
-import React from "react";
+import React, {useRef} from "react";
 import "./contact.scss";
-import { SMTPClient } from "emailjs";
+import emailjs from '@emailjs/browser';
 
-export default function Contact() {
-  // const [message, setMessage] = useState(false);
+export const Contact = () => {
+const form = useRef();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // setMessage(true);
+const sendEmail = (e) => {
+e.preventDefault();
 
-    emailjs
-      .sendForm("gmail", "YOUR_TEMPLATE_ID", e.target, "YOUR_USER_ID")
-      .then(
-        (result) => {
+emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
+      .then((result) => {
           console.log(result.text);
-        },
-        (error) => {
+      }, (error) => {
           console.log(error.text);
-        }
-      );
+      });
   };
 
   return (
-    <div className="contact" id="contact">
-      <div className="left">
-        <img src="assets/shake.svg" alt="" />
-      </div>
-
-      <div className="right"></div>
-
-      {/* <div className="right">
-      {/* place emailJS here */}
-        <h2>Contact.</h2>
-        <form onSubmit={handleSubmit}>
-          <input type="text" placeholder="Email" />
-          <textarea placeholder="Message"></textarea>
-          <button type="submit">Send</button>
-          {message && <span>Thanks, I'll reply ASAP :)</span>}
-        </form>
-      </div> */}
-    </div>
+    <form ref={form} onSubmit={sendEmail}>
+      <label>Name</label>
+      <input type="text" name="user_name" />
+      <label>Email</label>
+      <input type="email" name="user_email" />
+      <label>Message</label>
+      <textarea name="message" />
+      <input type="submit" value="Send" />
+    </form>
   );
-}
+};
