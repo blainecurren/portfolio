@@ -1,20 +1,31 @@
 // import { useState } from "react";
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import "./contact.scss";
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
+
 
 export const Contact = () => {
-const form = useRef();
+  const form = useRef();
 
-const sendEmail = (e) => {
-e.preventDefault();
+  
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBLIC_KEY')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_YOUR_SERVICE_ID,
+        process.env.REACT_APP_YOUR_TEMPLATE_ID,
+        form.current,
+        process.env.REACT_APP_YOUR_PUBLIC_KEY
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
+        }
+      );
   };
 
   return (
@@ -29,3 +40,5 @@ emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_PUBL
     </form>
   );
 };
+
+export default Contact;
