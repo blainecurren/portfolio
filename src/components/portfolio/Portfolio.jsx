@@ -15,15 +15,15 @@ export default function Portfolio() {
   const list = [
     {
       id: "featured",
-      title: "Featured",
+      title: "Front-End",
     },
     {
       id: "web",
-      title: "Web App",
+      title: "Back-End",
     },
     {
       id: "mobile",
-      title: "Mobile App",
+      title: "Full-Stack",
     },
     // {
     //   id: "design",

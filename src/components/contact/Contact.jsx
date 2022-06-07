@@ -34,15 +34,17 @@ export const Contact = () => {
       <div className="right">
         <h2>Contact Me.</h2>
         <form ref={form} onSubmit={sendEmail}>
-          {/* <label>Name</label> */}
-          <input type="text" placeholder="Email" />
-          {/* <label>Email</label> */}
-          <textarea placeholder="Message"></textarea>
-          {/* <input type="email" name="user_email" /> */}
+          <label>Name</label>
+          <input type="text" name="user_name" />
+          <label>Email</label>
+          {/* <textarea placeholder="Message"></textarea> */}
+          <input type="email" name="user_email" />
           {/* <textarea placeholder>Message</textarea> */}
-
-          {/* <textarea name="message" /> */}
-          <button type="submit" value="Send" />
+          <label>Message</label>
+          <textarea name="message" />
+          <button type="submit" value="send">
+            Send
+          </button>
         </form>
       </div>
     </div>
